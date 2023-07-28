@@ -11,7 +11,7 @@
 
 ## Hyperparameter studies of A3M on synthetic data
 
-> python vary_M_synthetic.py
+> python vary_N_synthetic.py
 
 > python vary_ax_synthetic.py
 
@@ -26,6 +26,3 @@
 > python real_green_taxi.py
 
 > python multidimension.py
-
-## To further facilitate reproducibility, we also provide the matlab implementation
-
