@@ -10,7 +10,7 @@ from a3m_dis import opt_variance, a3m_perturb
 
 """
 Example:
-    python synthetic_exp.py --data_type=GAUSSIAN --n=10000
+    python synthetic_exp_dis.py --data_type=GAUSSIAN --n=10000
 """
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
