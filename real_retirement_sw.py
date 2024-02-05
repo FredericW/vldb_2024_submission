@@ -6,10 +6,9 @@ from scipy import optimize
 
 from folktables import ACSDataSource, ACSIncome
 
-from utils import histogram_RR, denoise_histogram_RR, histogram_to_freq 
-from utils import compute_gaussian_sigma, duchi_algo, piecewise_algo, hybrid_algo
-from a3m import opt_variance, a3m_perturb
-from utils import sw
+from utils_dis import histogram_RR, denoise_histogram_RR, histogram_to_freq 
+from utils_dis import compute_gaussian_sigma, duchi_algo, piecewise_algo, hybrid_algo
+from utils_dis import sw
 
 
 if __name__ == "__main__":
