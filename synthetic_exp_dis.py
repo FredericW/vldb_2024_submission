@@ -4,13 +4,13 @@ import random
 import time
 
 from synthetic_generate import generate_synthetic_data
-from utils import histogram_RR, denoise_histogram_RR, histogram_to_freq 
-from utils import compute_gaussian_sigma, duchi_algo, piecewise_algo, hybrid_algo
-from a3m import opt_variance, a3m_perturb
+from utils_dis import histogram_RR, denoise_histogram_RR, histogram_to_freq 
+from utils_dis import duchi_algo, piecewise_algo, hybrid_algo
+from a3m_dis import opt_variance, a3m_perturb
 
 """
 Example:
-    python synthetic_exp.py --data_type=GAUSSIAN --n=10000
+    python synthetic_exp_dis.py --data_type=GAUSSIAN --n=10000
 """
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -24,15 +24,8 @@ if __name__ == "__main__":
     parser.add_argument("--high", help="upper limit for clipping", type=float, default=5)
     # range for DATA
     parser.add_argument("--beta", help="range for data", type=float, default=1)
-    # Privacy
-    parser.add_argument("--delta", help="privacy constraint", type=float, default=0.00001)
     # independent runs
     parser.add_argument("--runs", help="independent runs", type=int, default=1000) 
-    # gaussian
-    parser.add_argument("--step_start", type=int, default=0)
-    parser.add_argument("--step_end", type=int, default=300000)
-    parser.add_argument("--step_chi", type=float, default=0.00001)
-    parser.add_argument("--prec", help="relative prec", type=float, default=0.0001)
     # a3m
     parser.add_argument("--bin_size", help="bin length", type=float, default=0.5)
     parser.add_argument("--axRatio", help="ratio between amax/xmax", type=float, default=4)
@@ -47,6 +40,7 @@ if __name__ == "__main__":
     random.seed(args.seed)
     
     epsilon_array = np.linspace(0.5, 4, 8)
+    # epsilon_array = np.array([3.5,4])
     # epsilon_array = np.linspace(1, 8, 8)
 
     print('epsilon_array', epsilon_array)
@@ -69,6 +63,7 @@ if __name__ == "__main__":
             data_1 = data[0:int(split_ratio*args.n)]
             data_2 = data[int(split_ratio*args.n):args.n]
             true_mean = np.sum(data) / args.n
+            # print(data)
             """ 
                 laplace 
             """
@@ -102,19 +97,25 @@ if __name__ == "__main__":
                 a3m pure and app
             """
             # compute noisy histogram with randomize response
-            true_histogram_1, noisy_histogram_1 = histogram_RR(data_1, -args.beta, args.beta, args.bin_size, epsilon)    
+            true_histogram_1, noisy_histogram_1 = histogram_RR(data_1, -args.beta, args.beta, args.bin_size, epsilon)
+            # print('true 1:', true_histogram_1)
+            # print('noisy 1:',noisy_histogram_1)    
             true_histogram_2, noisy_histogram_2 = histogram_RR(data_2, -args.beta, args.beta, args.bin_size, epsilon)    
             # convert to frequency
             true_freq = histogram_to_freq(true_histogram_2, -args.beta, args.beta, args.bin_size)
+            # print(true_freq)
             noisy_freq = histogram_to_freq(noisy_histogram_1, -args.beta, args.beta, args.bin_size)
             # denoise the histogram and convert to frequency
             estimated_freq = denoise_histogram_RR(noisy_histogram_1, -args.beta, args.beta, args.bin_size, epsilon)
-            """ pure """
             # use estimated freq to generate a3m noise
             noise_values, opt_distribution_pure = opt_variance(estimated_freq, args.beta, args.bin_size, args.axRatio, epsilon, 0)
             # perturb with a3m
             a3m_noise_pure = a3m_perturb(true_histogram_2, args.beta, args.bin_size, noise_values, opt_distribution_pure)
-            error_a3m_pure[i] += np.power((np.sum(a3m_noise_pure)+np.sum(data_2)) / (args.n-int(split_ratio*args.n))-true_mean, 2) / args.runs
+            M = estimated_freq.size
+            x_grid = -args.beta + np.array(range(M)) * args.bin_size
+            # print(x_grid)
+            clean_dis_mean = np.sum(x_grid * true_freq)
+            error_a3m_pure[i] += np.power(clean_dis_mean+np.sum(a3m_noise_pure) / (args.n-int(split_ratio*args.n))-true_mean, 2) / args.runs
             
         print(f'Epsilon: {epsilon} finished')
         print(f'Laplace scale:{laplace_scale}, error: {error_laplace[i]}')
@@ -140,7 +141,7 @@ if __name__ == "__main__":
     for i in range(epsilon_array.size):
         print(epsilon_array[i], error_hybrid[i])
     print('\n')
-    print(f'Pure-A3M error:')
+    print(f'A3M error:')
     for i in range(epsilon_array.size):
         print(epsilon_array[i], error_a3m_pure[i])
     print('\n')
