@@ -9,15 +9,9 @@
 
 > python synthetic_exp_dis.py
 
-## Hyperparameter studies of A3M on synthetic data
+This will give you the performance of A3M, in comparison with several other baselines. The data type and various hyperparameters can be specified in the input arguments.
 
-> python vary_N_synthetic.py
-
-> python vary_ax_synthetic.py
-
-> python vary_split_synthetic.py
-
-## Real-world data experiments (use *_sw.py for SW-EMS)
+## Real-world data experiments (use *_sw.py for SW)
 
 > python real_income.py
 
@@ -26,6 +20,14 @@
 > python real_green_taxi.py
 
 > python multidimension.py
+
+## Hyperparameter studies of A3M on synthetic data
+
+> python vary_N_synthetic.py
+
+> python vary_ax_synthetic.py
+
+> python vary_split_synthetic.py
 
 
 To further facilitate reproducibility, we also provide the Matlab implementation for solving the optimal noise distribution, which is numerically, more stable.
