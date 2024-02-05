@@ -20,10 +20,6 @@ if __name__ == "__main__":
     parser.add_argument("--beta", help="range for data", type=float, default=1)
     # independent runs
     parser.add_argument("--runs", help="independent runs", type=int, default=100) 
-    # a3m
-    parser.add_argument("--bin_size", help="bin length", type=float, default=0.5)
-    parser.add_argument("--axRatio", help="ratio between amax/xmax", type=float, default=4)
-    parser.add_argument("--s", help="split ratio", type=float, default=0.1)
     
     args = parser.parse_args()
     print(args)
