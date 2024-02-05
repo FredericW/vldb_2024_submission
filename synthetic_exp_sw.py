@@ -4,7 +4,7 @@ import random
 import time
 
 from synthetic_generate import generate_synthetic_data
-from utils import sw
+from utils_dis import sw
 
 """
 Example:
