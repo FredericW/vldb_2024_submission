@@ -4,10 +4,9 @@ import random
 import pandas as pd
 from scipy import optimize
 
-from utils import histogram_RR, denoise_histogram_RR, histogram_to_freq 
-from utils import compute_gaussian_sigma, duchi_algo, piecewise_algo, hybrid_algo
-from a3m import opt_variance, a3m_perturb
-from utils import sw
+from utils_dis import histogram_RR, denoise_histogram_RR, histogram_to_freq 
+from utils_dis import compute_gaussian_sigma, duchi_algo, piecewise_algo, hybrid_algo
+from utils_dis import sw
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -16,15 +15,8 @@ if __name__ == "__main__":
     parser.add_argument("--seed", help="random seed", type=int, default=0)
     # range for DATA
     parser.add_argument("--beta", help="range for data", type=float, default=1)
-    # Privacy
-    parser.add_argument("--delta", help="privacy constraint", type=float, default=0.00001)
     # independent runs
     parser.add_argument("--runs", help="independent runs", type=int, default=100) 
-    # gaussian
-    parser.add_argument("--step_start", type=int, default=0)
-    parser.add_argument("--step_end", type=int, default=300000)
-    parser.add_argument("--step_chi", type=float, default=0.00001)
-    parser.add_argument("--prec", help="relative prec", type=float, default=0.0001)
     # a3m
     parser.add_argument("--bin_size", help="bin length", type=float, default=0.5)
     parser.add_argument("--axRatio", help="ratio between amax/xmax", type=float, default=4)
