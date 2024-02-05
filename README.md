@@ -27,4 +27,5 @@
 
 > python multidimension.py
 
-## To further facilitate reproducibility, we also provide the matlab implementation, which is numerically, more stable.
+
+To further facilitate reproducibility, we also provide the Matlab implementation for solving the optimal noise distribution, which is numerically, more stable.
