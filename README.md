@@ -9,7 +9,10 @@
 
 > python synthetic_exp_dis.py
 
-This will give you the performance of A3M, in comparison with several other baselines. The data type and various hyperparameters can be specified in the input arguments.
+This will give you the performance of A3M, in comparison with several other baselines. The data type and various hyperparameters can be specified in the input arguments. For example, for 10000 Gaussian data points, run
+
+> python synthetic_exp_dis.py --data_type=GAUSSIAN --n=10000
+
 
 ## Real-world data experiments (use *_sw.py for SW)
 
