@@ -18,11 +18,6 @@ if __name__ == "__main__":
     parser.add_argument("--beta", help="range for data", type=float, default=1)
     # independent runs
     parser.add_argument("--runs", help="independent runs", type=int, default=100) 
-    # gaussian
-    parser.add_argument("--step_start", type=int, default=0)
-    parser.add_argument("--step_end", type=int, default=300000)
-    parser.add_argument("--step_chi", type=float, default=0.00001)
-    parser.add_argument("--prec", help="relative prec", type=float, default=0.0001)
     # a3m
     parser.add_argument("--bin_size", help="bin length", type=float, default=0.5)
     parser.add_argument("--axRatio", help="ratio between amax/xmax", type=float, default=4)
