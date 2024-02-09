@@ -39,9 +39,7 @@ if __name__ == "__main__":
     random.seed(args.seed)
 
   
-    # epsilon_array = np.linspace(1, 4, 4)
     epsilon_array = np.array([0.5,1,2,4])
-    # splits = np.array([0.4,0.8])
     splits = np.array([0.025,0.05,0.1,0.2,0.4])
     bin_size = args.bin_size
     axRatio = 4
