@@ -29,7 +29,6 @@ if __name__ == "__main__":
     random.seed(args.seed)
     
     epsilon_array = np.linspace(1, 4, 4)
-    # epsilon_array = np.array([3,4])
 
     error_sw = np.zeros(epsilon_array.size)
 
