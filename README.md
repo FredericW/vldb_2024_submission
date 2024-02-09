@@ -9,7 +9,7 @@
 
 > python synthetic_exp_dis.py
 
-This will give you the performance of A3M, in comparison with several other baselines (run the script *_sw.py for SW) over a range of choices of epsilon. The data type and various hyperparameters (e.g., bin size, split ratio) can be specified in the input arguments. For example, for 10000 Gaussian data points, run
+This script shows the performance of A3M, in comparison with several other baselines (run the script *_sw.py for SW) over a range of choices of epsilon. The data type and various hyperparameters (e.g., bin size, split ratio) can be specified in the input arguments. For example, for 10000 Gaussian data points, run
 
 > python synthetic_exp_dis.py --data_type=GAUSSIAN --n=10000
 
@@ -23,7 +23,7 @@ This will give you the performance of A3M, in comparison with several other base
 
 > python multidimension.py
 
-This will give you the performance of A3M on multi-dimensional data and real-world datasets, in comparison with several other baselines (run the script *_sw.py for SW). 
+This script shows the performance of A3M on multi-dimensional data and real-world datasets, in comparison with several other baselines (run the script *_sw.py for SW). 
 
 ## Hyperparameter studies of A3M 
 
@@ -32,6 +32,3 @@ This will give you the performance of A3M on multi-dimensional data and real-wor
 > python vary_ax_synthetic.py
 
 > python vary_split_synthetic.py
-
-
-To further facilitate reproducibility, we also provide the Matlab implementation for solving the optimal noise distribution, which is numerically, more stable.
