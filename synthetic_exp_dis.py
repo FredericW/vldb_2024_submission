@@ -40,8 +40,6 @@ if __name__ == "__main__":
     random.seed(args.seed)
     
     epsilon_array = np.linspace(0.5, 4, 8)
-    # epsilon_array = np.array([3.5,4])
-    # epsilon_array = np.linspace(1, 8, 8)
 
     print('epsilon_array', epsilon_array)
 
