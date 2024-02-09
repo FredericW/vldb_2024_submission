@@ -51,7 +51,7 @@ if __name__ == "__main__":
     np.random.seed(args.seed)
     random.seed(args.seed)
     
-    epsilon_array = np.linspace(1, 8, 8)
+    epsilon_array = np.linspace(1, 4, 4)
 
     error_sw = np.zeros(epsilon_array.size)
 
