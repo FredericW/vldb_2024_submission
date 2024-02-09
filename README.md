@@ -9,7 +9,7 @@
 
 > python synthetic_exp_dis.py
 
-This script shows the performance of A3M, in comparison with several other baselines (run the script *_sw.py for SW) over a range of choices of epsilon. The data type and various hyperparameters (e.g., bin size, split ratio) can be specified in the input arguments. For example, for 10000 Gaussian data points, run
+This script shows the performance of A3M, in comparison with several other baselines (run the script *_sw.py for SW) over a range of choices of epsilon. The data type and various hyperparameters (e.g., data size, bin size, split ratio) can be specified in the input arguments. For example, for 10000 Gaussian data points, run
 
 > python synthetic_exp_dis.py --data_type=GAUSSIAN --n=10000 --bin_size=0.5 --axRatio=4 --s=0.1
 
