@@ -27,7 +27,7 @@ with bin_size (namely, N) set to 0.5; axRatio set to 4; and split ratio set to 0
 
 > python multidimension.py
 
-These scripts show the performance of A3M on multi-dimensional data and real-world datasets, in comparison with several other baselines (run the script *_sw.py for SW). 
+These scripts show the performance of A3M on multi-dimensional data for multiple real-world datasets, in comparison with several other baselines (run the script *_sw.py for SW). 
 
 ## Hyperparameter studies of A3M 
 
