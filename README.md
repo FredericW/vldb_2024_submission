@@ -1,3 +1,5 @@
+# [Full technical report(https://arxiv.org/ftp/arxiv/papers/2404/2404.01625.pdf)
+
 # Implementation of A3M Mechanism
 
 ## Dependencies 
