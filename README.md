@@ -1,4 +1,4 @@
-The full technical report is [here](https://arxiv.org/ftp/arxiv/papers/2404/2404.01625.pdf
+The full technical report is [here](https://arxiv.org/ftp/arxiv/papers/2404/2404.01625.pdf)
 
 # Implementation of A3M Mechanism
 
